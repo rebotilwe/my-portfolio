@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import "./CV_DownloaderStyles.css";
 import Swal from 'sweetalert2';
 
-const PDF_FILE_URL = "http://localhost:3000/myCV.pdf";
+const PDF_FILE_URL = "http://localhost:3000/CV.pdf";
 
 const CV_Dowloader = () => {
 

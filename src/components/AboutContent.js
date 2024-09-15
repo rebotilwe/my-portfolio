@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import "./AboutContentStyles.css";
 import React from 'react';
-import img10 from '../assets/images/img10.jpg'
-import img11 from '../assets/images/img11.jpg'
-import CV_Dowloader from "./CV_Dowloader";
+import img10 from '../assets/images/img10.jpg';
+import img11 from '../assets/images/img11.jpg';
+import CVDowloader from "./CVDowloader"; // Updated name to PascalCase
 import SkillCard from "./SkillCard";
 import WorkExperienceCard from "./WorkExperienceCard";
+
+
 
 const AboutContent = () => {
     return (
@@ -25,16 +27,16 @@ const AboutContent = () => {
                 <Link to="/contact">
                     <button className="btn">Contact</button>
                 </Link>
-                <CV_Dowloader />
+                <CVDowloader /> {/* Updated name to PascalCase */}
             </div>
 
             <div className="right">
                 <div className="img-container">
                     <div className="img-stack top">
-                        <img src={img11} className="img" alt="image" />
+                        <img src={img11} className="img" />
                     </div>
                     <div className="img-stack bottom">
-                        <img src={img10} className="img" alt="image" />
+                        <img src={img10} className="img" />
                     </div>
                 </div>
             </div>
@@ -47,4 +49,4 @@ const AboutContent = () => {
     )
 }
 
-export default AboutContent
+export default AboutContent;

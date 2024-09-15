@@ -1,8 +1,6 @@
-import { Link } from "react-router-dom";
+
 import "./WorkExperienceCardStyles.css";
-
 import React from 'react';
-
 
 const WorkExperienceCard = () => {
     return (
@@ -20,7 +18,7 @@ const WorkExperienceCard = () => {
                 </div>
 
                 <div className="card">
-                <h3>- ICT Industry -</h3>
+                    <h3>- ICT Industry -</h3>
                     <span className="bar"></span>
                     <p><b>Company name: </b>Intern Career</p>
                     <p><b>Position: </b> Developer</p>
@@ -32,13 +30,12 @@ const WorkExperienceCard = () => {
                 <div className="card">
                     <h3>- Retail Industry -</h3>
                     <span className="bar"></span>
-                    <p><b>Company name: </b>Shopritte</p>
-                    <p><b>Position: </b> Cashier & a Packer</p>
-                    <p><b>Duties: </b> Help customers who are paying also packing shelves</p>
+                    <p><b>Company name: </b>Shoprite</p>
+                    <p><b>Position: </b> Cashier & Packer</p>
+                    <p><b>Duties: </b> Help customers who are paying and pack shelves</p>
                     <p><b>Duration: </b> 2 Years</p>
                     <p><b>Reason for leaving:</b> Resigned</p>
                 </div>
-
             </div>
         </div>
     );

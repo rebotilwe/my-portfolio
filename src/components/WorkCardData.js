@@ -18,6 +18,8 @@ const toDoListAppInfo = "The objective of this task was to create a todo list (t
 
 const hotelAppInfo = "The objective of the task was to build an interactive React application with CRUD operations that integrate with Firebase. The web application takes the form of two separate applications, one for admin and one for the client/customer. This will be the first task that involves real-time communication between connected apps. Admin App Objective: The admin app allows an admin to add and maintain rooms in a hotel. The admin should be able to add new rooms with all information required, update the room later or delete it fully. The admin should be able to view all the rooms and room types already added. Client App Objective: The client app allows users to register, login, browse the rooms the hotel has, and then book when interested. Users should be able to filter these rooms according to a price range provided by the user. The web app should allow users to select a date range for their visit and only allow booking if there is a room available for those days. Tools used: Javascript, React, CSS, Bootstrap, and Firebase for data storage and hosting.";
 
+const ehailingMobileApp = "The objective of this task was to enable users to easily book rides from their smartphones or computers without the need for traditional hailing methods. Provide a seamless booking experience with minimal steps. The app has different main pages, namely: Registration, Login, and Home page. The requirements of the app are as follows: 1. New users should be able to register on the app 2. Registered users should be able to login 3. Should be able to add new tasks with task description and priority 4. Should be able to update, delete, and search existing tasks 5. Home page should be accessible when logged in, this is called a guarded route 6. Data should be persistent. Tools used: Javascript, React, CSS, Local Storage, and Firebase for hosting.";
+
 const restaurantAppInfo = "This task aimed to help me showcase my working knowledge of React Native in the form of a mobile application that allows the user to view food menus and make orders through the application. The requirements of the app are as follows: Create an application that: a. Allows users to register, login, and update their profiles on the application. b. Views food menus c. View a food item d. Add items to cart e. View cart f. Remove items from the cart g. Clear the cart h. Go to checkout i. Place an order. Tools used: React Native, Javascript, NodeJS, Stripe for payment integration, Expo for hosting, and Firebase for data storage. To explore the app on Android Expo Go app, use the link: exp://u.expo.dev/update/7705a239-c4f3-497c-99b3-55bcb5628daf";
 
 const ProjectCardData = [
@@ -59,6 +61,13 @@ const ProjectCardData = [
         text: hotelAppInfo,
         view: "https://hotel-bookings-app.web.app/",
         gitlink: "https://github.com/mabilisasandile/hotel-booking-app"
+    },
+    {
+        imgsrc: project2,
+        title: "Nthome Mobile app",
+        text: restaurantAppInfo,
+        // view: './contact',
+        // gitlink: "https://github.com/TSlash122/Bistro"
     }
 ];
 

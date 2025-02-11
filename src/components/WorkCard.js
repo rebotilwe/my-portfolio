@@ -1,5 +1,6 @@
-import React from 'react';
-import { NavLink } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, NavLink } from "react-router-dom";
+import img7 from '../assets/images/img7.jpg';
 import "./WorkCardStyles.css";
 import { Modal, Button } from '@mui/material';
 
@@ -16,7 +17,7 @@ const WorkCard = (props) => {
 
   return (
     <div className="project-card">
-      <img src={props.imgsrc} alt={props.title} />
+      <img src={props.imgsrc} alt="image" />
       <h2 className="project-title">{props.title}</h2>
       <div className="pro-details">
         <p className="content">{props.text}</p>
@@ -43,7 +44,7 @@ const WorkCard = (props) => {
             color: '#000',
             backgroundColor: '#191970',
             '@media (max-width: 600px)': {
-              alignItems: 'flex-start',
+              alignItems: 'flex-start', // Adjust alignment for small screens
             },
           }}
         >
@@ -55,7 +56,7 @@ const WorkCard = (props) => {
               boxShadow: 24,
               width: '50%',
               '@media (max-width: 600px)': {
-                width: '80%',
+                width: '80%', // Adjust width for small screens
               },
             }}
           >

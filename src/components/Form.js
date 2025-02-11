@@ -3,14 +3,19 @@ import './FormStyles.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
+
 const Form = () => {
 
-  const [formData, setFormData] = useState({
+  const [email, setEmail] = useState("");
+  const [isValidEmail, setIsValidEmail] = useState(false);
+
+  const [FormData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
+
 
   const [formErrors, setFormErrors] = useState({
     name: '',
@@ -24,73 +29,86 @@ const Form = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
-      ...formData,
+      ...FormData,
       [name]: value
     });
   };
+
 
   const validateForm = () => {
     let errors = {};
     let isValid = true;
 
-    if (!formData.name) {
-      errors.name = "* Name is required";
+    if (!FormData.name) {
+      errors.name = "* Name is required"
       isValid = false;
     }
 
-    if (!formData.email) {
+    if (!FormData.email) {
       errors.email = "* Email address is required";
       isValid = false;
+
     } else {
+      const newEmail = FormData.email;
+      setEmail(newEmail);
+
       // Regular expression for a basic email format check
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.email)) {
+      isValid = emailRegex.test(newEmail);
+
+      if (!isValid) {
         errors.email = "* Invalid email address entered";
-        isValid = false;
       }
     }
 
-    if (!formData.subject) {
-      errors.subject = "* Subject is required";
+    if (!FormData.subject) {
+      errors.subject = "* Subject is required"
       isValid = false;
     }
 
-    if (!formData.message) {
-      errors.message = "* Message is required";
+    if (!FormData.message) {
+      errors.message = "* Message is required"
       isValid = false;
     }
 
     setFormErrors(errors);
     return isValid;
+
   };
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!validateForm()) return;
+
+    setLoading(true);
+
     try {
-      if (validateForm()) {
-        setLoading(true);
+        const response = await axios.post('http://localhost:5000/submit-form', FormData);
 
-        await axios.post('https://my-node-app-qfg5.onrender.com/submit-form', { formData });
-        console.log("Form submitted:", formData);
-        Swal.fire('Success!', 'Message sent successfully', 'success');
+        if (response.status === 200) {
+            Swal.fire('Success!', 'Your message has been sent!', 'success');
+        } else {
+            Swal.fire('Error!', 'Something went wrong. Please try again.', 'error');
+        }
 
-        setLoading(false);
         setFormData({
-          name: '',
-          email: '',
-          subject: '',
-          message: ''
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
         });
-      } else {
-        console.log("Form has errors");
-      }
     } catch (error) {
-      console.log("Failed to submit form:", error);
-      Swal.fire('Error!', 'Something went wrong. Please check your internet connection and try again.', 'error');
-      setLoading(false);
+        console.error('Error submitting form:', error);
+        Swal.fire('Error!', 'Failed to send message. Try again.', 'error');
+    } finally {
+        setLoading(false);
     }
-  };
+};
+
+
 
   return (
     <div className="form">
@@ -99,7 +117,7 @@ const Form = () => {
         <input
           type='text'
           name='name'
-          value={formData.name}
+          value={FormData.name}
           onChange={handleChange}
         />
         <span style={{ color: 'red' }}>{formErrors.name}</span>
@@ -108,7 +126,7 @@ const Form = () => {
         <input
           type='email'
           name='email'
-          value={formData.email}
+          value={FormData.email}
           onChange={handleChange}
         />
         <span style={{ color: 'red' }}>{formErrors.email}</span>
@@ -117,7 +135,7 @@ const Form = () => {
         <input
           type='text'
           name='subject'
-          value={formData.subject}
+          value={FormData.subject}
           onChange={handleChange}
         />
         <span style={{ color: 'red' }}>{formErrors.subject}</span>
@@ -127,17 +145,15 @@ const Form = () => {
           rows="6"
           placeholder="Type your message here"
           name='message'
-          value={formData.message}
+          value={FormData.message}
           onChange={handleChange}
         />
         <span style={{ color: 'red' }}>{formErrors.message}</span>
 
-        <button type="submit" className="btn" disabled={loading}>
-          {loading ? 'Submitting...' : 'SUBMIT'}
-        </button>
+        <button type="submit" className="btn" disabled={loading}>{loading ? 'Submitting...' : 'SUBMIT'}</button>
       </form>
     </div>
-  );
-};
+  )
+}
 
 export default Form;

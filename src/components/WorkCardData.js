@@ -3,6 +3,11 @@ import project2 from '../assets/images/img7.jpg';
 import project3 from '../assets/images/img3.jpg';
 import img13 from '../assets/images/img13.png';
 import img14 from '../assets/images/img14.jpeg';
+import pic6 from '../assets/images/pic6.jpg';
+import pic7 from '../assets/images/pic7.jpg';
+import pic10 from '../assets/images/pic10.jpg';
+import pic9 from '../assets/images/pic9.jpg';
+import pic8 from '../assets/images/pic8.jpg';
 
 const campusGPS = "The objective of the task was to build an interactive React application with CRUD operations that integrate with Firebase. The web application takes the form of three separate applications, one for admin, teachers and one for the students. This will be the first task that involves real-time communication between connected apps. Admin App Objective: Oversee the installation, configuration, and maintenance of the GPS system. Ensure the software and hardware components are up to date and functioning correctly. Students and Teachers App Objective: Use the GPS system to find directions to classrooms, administrative offices, libraries, and other campus facilities. Locate specific services, such as dining halls, health centers, or recreational areas. Tools used: Javascript, React, CSS, Bootstrap, and Firebase for data storage and hosting.";
 
@@ -22,9 +27,13 @@ const ehailingMobileApp = "The objective of this task was to enable users to eas
 
 const restaurantAppInfo = "This task aimed to help me showcase my working knowledge of React Native in the form of a mobile application that allows the user to view food menus and make orders through the application. The requirements of the app are as follows: Create an application that: a. Allows users to register, login, and update their profiles on the application. b. Views food menus c. View a food item d. Add items to cart e. View cart f. Remove items from the cart g. Clear the cart h. Go to checkout i. Place an order. Tools used: React Native, Javascript, NodeJS, Stripe for payment integration, Expo for hosting, and Firebase for data storage. To explore the app on Android Expo Go app, use the link: exp://u.expo.dev/update/7705a239-c4f3-497c-99b3-55bcb5628daf";
 
+const nthomeRidezCustomerApp ="A mobile app for customers to request rides, track drivers in real time, pay securely, and rate their experience. Developed using React Native with integrated mapping, notifications, and role-based user flows.";
+
+const nthomeRidezDriverApp = "A mobile app for drivers to manage ride requests, view earnings, update status (online/offline), and receive real-time notifications. Built in React Native with integration to backend APIs for driver-specific workflows.";
+
 const ProjectCardData = [
     {
-        imgsrc: project1,
+        imgsrc: pic8,
         title: "TUT South Campus GPS",
         text: campusGPS,
         view: "https://campus-gps-379423.web.app/",
@@ -37,7 +46,7 @@ const ProjectCardData = [
         gitlink: "https://github.com/rebotilwe/weatherApp-"
     },
     {
-        imgsrc: project3,
+        imgsrc: pic7,
         title: "Nthome Ridez Web App",
         text: ehailingAppInfo,
         gitlink: "https://github.com/ICEP-DEV/Tech.Wise.Web/tree/Bobo"
@@ -49,26 +58,40 @@ const ProjectCardData = [
         view: "https://to-do-list-592d8.web.app/",
     },
     {
-        imgsrc: project2,
+        imgsrc: pic10,
         title: "Food Delivery Web App",
         text: foodDeliveryAppInfo,
         view: './contact',
         gitlink: "https://github.com/TSlash122/Bistro"
     },
     {
-        imgsrc: project1,
+        imgsrc: pic9,
         title: "Hotel App",
         text: hotelAppInfo,
         view: "https://hotel-bookings-app.web.app/",
         gitlink: "https://github.com/mabilisasandile/hotel-booking-app"
     },
     {
-        imgsrc: project2,
-        title: "Nthome Mobile app",
-        text: restaurantAppInfo,
-        // view: './contact',
-        // gitlink: "https://github.com/TSlash122/Bistro"
+        imgsrc: pic6, // Screenshot of the customer side
+        title: "Nthome Ridez Mobile App (Customer)",
+        text: nthomeRidezCustomerApp,
+        gitlink: "https://github.com/ICEP-DEV/Tech.Wise.Customer.Mobile" // replace with actual customer repo link
+    },
+    {
+        imgsrc: pic7,
+        title: "Nthome Ridez Mobile App (Driver)",
+        text: nthomeRidezDriverApp,
+        gitlink: "https://github.com/ICEP-DEV/Tech.Wise.Mobile" // driver repo
     }
+    
+    // {
+    //     imgsrc: project3, // Update image if needed
+    //     title: "Restaurant Mobile App",
+    //     text: restaurantAppInfo,
+    //     gitlink: "https://github.com/yourusername/restaurant-app", // Replace with real link
+    //     view: "exp://u.expo.dev/update/7705a239-c4f3-497c-99b3-55bcb5628daf"
+    // }
 ];
+
 
 export default ProjectCardData;

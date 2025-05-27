@@ -36,15 +36,10 @@ const Navbar = () => {
                 <li>
                     <Link to="/about">About</Link>
                 </li>
-                <li>
-                    <a 
-                        href="https://docs.google.com/forms/d/e/1FAIpQLScBJ-IsP05hnGbS9SpbnDlzmVUEufEE_wkgQmyG4qGs90mPww/viewform?usp=header"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Contact
-                    </a>
-                </li>
+             <li>
+  <a href="/contact">Contact</a>
+</li>
+
             </ul>
             <div className="hamburger" onClick={handleClick}>
                 {click ? (

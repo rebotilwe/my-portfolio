@@ -1,159 +1,104 @@
 import React, { useState } from 'react';
 import './FormStyles.css';
-import axios from 'axios';
 import Swal from 'sweetalert2';
-
+import emailjs from '@emailjs/browser';
 
 const Form = () => {
-
-  const [email, setEmail] = useState("");
-  const [isValidEmail, setIsValidEmail] = useState(false);
-
-  const [FormData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
 
-
-  const [formErrors, setFormErrors] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
+  const [formErrors, setFormErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...FormData,
-      [name]: value
-    });
-  };
-
-
   const validateForm = () => {
-    let errors = {};
+    const errors = {};
     let isValid = true;
 
-    if (!FormData.name) {
-      errors.name = "* Name is required"
+    if (!formData.name) {
+      errors.name = "* Name is required";
       isValid = false;
     }
-
-    if (!FormData.email) {
-      errors.email = "* Email address is required";
+    if (!formData.email) {
+      errors.email = "* Email is required";
       isValid = false;
-
     } else {
-      const newEmail = FormData.email;
-      setEmail(newEmail);
-
-      // Regular expression for a basic email format check
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      isValid = emailRegex.test(newEmail);
-
-      if (!isValid) {
-        errors.email = "* Invalid email address entered";
+      if (!emailRegex.test(formData.email)) {
+        errors.email = "* Invalid email address";
+        isValid = false;
       }
     }
-
-    if (!FormData.subject) {
-      errors.subject = "* Subject is required"
+    if (!formData.subject) {
+      errors.subject = "* Subject is required";
       isValid = false;
     }
-
-    if (!FormData.message) {
-      errors.message = "* Message is required"
+    if (!formData.message) {
+      errors.message = "* Message is required";
       isValid = false;
     }
 
     setFormErrors(errors);
     return isValid;
-
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!validateForm()) return;
 
     setLoading(true);
 
-    try {
-        const response = await axios.post('http://localhost:5000/submit-form', FormData);
-
-        if (response.status === 200) {
-            Swal.fire('Success!', 'Your message has been sent!', 'success');
-        } else {
-            Swal.fire('Error!', 'Something went wrong. Please try again.', 'error');
-        }
-
-        setFormData({
-            name: '',
-            email: '',
-            subject: '',
-            message: ''
-        });
-    } catch (error) {
-        console.error('Error submitting form:', error);
-        Swal.fire('Error!', 'Failed to send message. Try again.', 'error');
-    } finally {
+    emailjs.send('service_wxizf49', 'template_rmfznxu', formData, 'b8KPnE20lqDEfKhfC')
+      .then(() => {
+        Swal.fire('Success!', 'Your message has been sent!', 'success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      })
+      .catch((error) => {
+        console.error('EmailJS error:', error);
+        Swal.fire('Error!', 'Failed to send message. Try again later.', 'error');
+      })
+      .finally(() => {
         setLoading(false);
-    }
-};
-
-
+      });
+  };
 
   return (
     <div className="form">
       <form onSubmit={handleSubmit}>
         <label>Your Name:</label>
-        <input
-          type='text'
-          name='name'
-          value={FormData.name}
-          onChange={handleChange}
-        />
+        <input type="text" name="name" value={formData.name} onChange={handleChange} />
         <span style={{ color: 'red' }}>{formErrors.name}</span>
 
         <label>Email:</label>
-        <input
-          type='email'
-          name='email'
-          value={FormData.email}
-          onChange={handleChange}
-        />
+        <input type="email" name="email" value={formData.email} onChange={handleChange} />
         <span style={{ color: 'red' }}>{formErrors.email}</span>
 
         <label>Subject:</label>
-        <input
-          type='text'
-          name='subject'
-          value={FormData.subject}
-          onChange={handleChange}
-        />
+        <input type="text" name="subject" value={formData.subject} onChange={handleChange} />
         <span style={{ color: 'red' }}>{formErrors.subject}</span>
 
         <label>Message:</label>
-        <textarea
-          rows="6"
-          placeholder="Type your message here"
-          name='message'
-          value={FormData.message}
-          onChange={handleChange}
-        />
+        <textarea name="message" rows="6" value={formData.message} onChange={handleChange} placeholder="Type your message here" />
         <span style={{ color: 'red' }}>{formErrors.message}</span>
 
-        <button type="submit" className="btn" disabled={loading}>{loading ? 'Submitting...' : 'SUBMIT'}</button>
+        <button type="submit" className="btn" disabled={loading}>
+          {loading ? 'Sending...' : 'SUBMIT'}
+        </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default Form;

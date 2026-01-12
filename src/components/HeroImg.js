@@ -12,10 +12,10 @@ const HeroImg = () => {
       <div className="content">
         <p>HI! I'M REBOTILWE MOKIBA.</p>
         <h1>FULL STACK SOFTWARE DEVELOPER</h1>
-        <div>
+        {/* <div>
           <Link to="/project" className="btn">PROJECTS</Link>
           <Link to="/contact" className="btn btn-light">CONTACT</Link>
-        </div>
+        </div> */}
 
       </div>
     </div>

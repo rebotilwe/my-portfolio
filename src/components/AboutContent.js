@@ -1,48 +1,67 @@
 import { Link } from "react-router-dom";
 import "./AboutContentStyles.css";
 import React from 'react';
-import img10 from '../assets/images/img10.jpg';
-import img11 from '../assets/images/img11.jpg';
-import CVDowloader from "./CVDowloader"; // Updated name to PascalCase
+import Bobo1 from '../assets/images/Bobo1.jpeg';
+import Bobo2 from '../assets/images/Bobo2.jpeg';
+import CVDowloader from "./CVDowloader";
 import SkillCard from "./SkillCard";
 import WorkExperienceCard from "./WorkExperienceCard";
-
-
+import { FaGraduationCap } from "react-icons/fa"; // graduation icon
 
 const AboutContent = () => {
+    const certificates = [
+        { name: "Diploma in Software Development", year: "2024" },
+        { name: "Microsoft Certified: Security, Compliance, and Identity Fundamentals", year: "2025" },
+        { name: "Microsoft AI Fluency Certificate", year: "2025" },
+        { name: "Hashgraph Developer Program – Attendance Certificate", year: "2024" },
+        { name: "National Senior Certificate", year: "2017" }
+    ];
+
     return (
         <div className="about">
 
             <div className="left">
                 <h1>Who am I?</h1>
                 <p>
-                    I am a recent graduate in IT Software Development with a strong foundation in computer systems and software principles, passion for crafting innovative solutions through web and mobile development. With one year of hands-on experience gained during my in-service training, I possess a diverse set of skills in IT, including programming languages such as Java, C++, Javascript, HTML, CSS. Development frameworks such as React, Databases such as MySQL. 
-                    <br></br>
-                    <br></br>
-                    My exposure to Agile methodologies, particularly Scrum, has empowered me to embrace iterative development and continuous improvement, collaborate effectively in cross-functional teams, prioritize tasks and manage my time effeciently.By applying Scrum principles, I've become more flexible, productive, and customer-focused in my approach to software development.
-                    <br></br>
-                    <br></br>
-                    As I continue to grow and evolve in this ever-changing field, I am excited about the opportunities to collaborate, learn, and make a meaningful impact. Thank you for visiting my portfolio, and please feel free to explore my projects and reach out to discuss potential collaborations or opportunities.
+                    I am a motivated Junior Full Stack Software Developer with hands-on experience building web and mobile applications using modern technologies. I hold a Diploma in Information Technology: Software Development and have practical experience developing scalable solutions using JavaScript, React.js, Node.js, MySQL, and REST APIs.
+                    <br /><br />
+                    During my internship at TUT ICEP, I worked in an Agile environment where I collaborated closely with designers, developers, and a Scrum Master to deliver production-ready features. My responsibilities included developing and consuming APIs, implementing front-end interfaces, performing testing and debugging, and contributing to code quality through reviews and continuous improvement.
+                    <br /><br />
+                    I have worked on real-world projects such as an E-Hailing Web and Mobile Application and a Courier Management System, where I implemented features including user authentication, subscriptions, payments, dashboards, notifications, and real-time tracking. I also have exposure to cloud concepts through deploying applications and working with hosted environments.
+                    <br /><br />
+                    I am passionate about learning new technologies, writing clean and maintainable code, and building solutions that create real value. I am actively growing my skills in cloud technologies, system architecture, and secure application development, and I look forward to contributing to innovative development teams.
                 </p>
+
                 <Link to="/contact">
                     <button className="btn">Contact</button>
                 </Link>
-                <CVDowloader /> {/* Updated name to PascalCase */}
+
+                <CVDowloader />
+
+                {/* Certificates Section */}
+                <h2 style={{ marginTop: "2rem", color: "#4f46e5" }}>Certificates</h2>
+                <ul className="certificates-list">
+                    {certificates.map((cert, index) => (
+                        <li key={index}>
+                            <FaGraduationCap style={{ marginRight: "0.5rem", color: "#10b981" }} />
+                            {cert.name} – {cert.year}
+                        </li>
+                    ))}
+                </ul>
             </div>
 
             <div className="right">
                 <div className="img-container">
                     <div className="img-stack top">
-                        <img src={img11} className="img" />
+                        <img src={Bobo1} className="img" alt="profile" />
                     </div>
                     <div className="img-stack bottom">
-                        <img src={img10} className="img" />
+                        <img src={Bobo2} className="img" alt="workspace" />
                     </div>
                 </div>
             </div>
 
             <SkillCard />
-
             <WorkExperienceCard />
 
         </div>

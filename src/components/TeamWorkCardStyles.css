@@ -1,70 +1,102 @@
-
-.pricing-heading {
-    text-align: center;
-    color: #fff;
-    padding: 4rem 0 2rem 0;
+.team-heading {
+  text-align: center;
+  color: #fff;
+  font-size: 2.5rem;
+  padding: 4rem 0 2rem 0;
 }
 
-.pricing {
-    width: 100%;
-    padding: 6rem 1rem;
+.team-work {
+  width: 100%;
+  padding: 2rem 1rem 6rem 1rem;
+  background-color: #0d0d0d;
 }
 
-.card-container {
-    max-width: 1140px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 40px;
+.team-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2.5rem;
 }
 
-.card {
-    border: 1px solid #eee;
-    color: #eee;
-    text-align: center;
-    padding: 1rem;
+.team-card {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #fff;
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.card:hover {
-    background-color: #141414;
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
 }
 
-.card h3 {
-    font-size: 1.4rem;
-    padding: 1rem;
+.team-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
-.card p {
-    padding: 10px 0;
+.team-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
 }
 
-.bar {
-    border-bottom: 1px solid #eee;
-    width: 10%;
-    margin: 1.5rem auto;
-    display: block;
+.role {
+  font-weight: 500;
+  color: #00bfff;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
-.btc {
-    font-size: 2rem;
-    font-weight: 300;
-    padding: 1rem 0;
-} 
-
-.card .btn {
-    display: block;
-    width: 80%;
-    margin: 2rem auto;
+.meta {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 1rem;
 }
 
-.card img {
-    width: 100%;
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
-@media screen and (max-width: 740px) {
-    .card-container {
-        max-width: 90%;
-        margin: auto;
-        grid-template-columns: 1fr;
-    }
+.responsibilities {
+  list-style: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.responsibilities li {
+  margin-bottom: 0.5rem;
+}
+
+.card-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.card-btns .btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #00bfff;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.card-btns .btn:hover {
+  background-color: #009acd;
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+  .team-container {
+    grid-template-columns: 1fr;
+  }
 }

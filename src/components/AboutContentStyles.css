@@ -1,50 +1,203 @@
-.about {
-    width: 100%;
-    margin: 3rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    height: 100%;
+/* AboutContentStyles.css - 2026 Portfolio Upgrade */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --accent-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --shadow-sm: 0 10px 30px rgba(0,0,0,0.08);
+  --shadow-lg: 0 25px 80px rgba(0,0,0,0.15);
+  --border-radius: 20px;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.about {
+  width: 100%;
+  margin: 4rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding: 2rem;
+}
+
+/* Left Content Card */
 .about .left {
-    text-align: center;
-    margin: auto;
-    padding: 1rem;
-    max-width: 350px;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border-radius: var(--border-radius);
+  padding: 2.5rem 2rem;
+  max-width: 450px;
+  text-align: left;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.about .left::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.15), rgba(255,255,255,0) 70%);
+  transform: skewX(-20deg) translateX(-100%);
+  transition: transform 0.6s ease-in-out;
+  pointer-events: none;
+}
+
+.about .left:hover::after {
+  transform: skewX(-20deg) translateX(100%);
+}
+
+.about .left:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+.about .left h1 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .about .left p {
-    margin: 1.2rem 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
 }
 
+/* Buttons */
+.about .btn {
+  background: var(--primary-gradient);
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  margin-right: 0.5rem;
+}
+
+.about .btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(102,126,234,0.35);
+}
+
+/* Right Image Section */
 .about .right {
-    max-width: 700px;
+  max-width: 520px;
+  position: relative;
 }
 
 .right .img-container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    position: relative;
-    align-items: center;
-    text-align: center;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  position: relative;
+  align-items: center;
+}
+
+.right .img-stack {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.right .img-stack:hover {
+  transform: scale(1.03) translateY(-5px);
 }
 
 .right .img {
-    max-width: 90%;
-    border: 1px solid #333;
+  width: 100%;
+  border-radius: var(--border-radius);
+  object-fit: cover;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.5s ease;
 }
 
 .right .top {
-    grid-column: 1 / span 8;
-    grid-row: 1;
-    padding-top: 20%;
-    z-index: 6;
+  grid-column: 1 / span 7;
+  grid-row: 1;
+  padding-top: 15%;
+  z-index: 2;
 }
 
 .right .bottom {
-    grid-column: 4 / -1;
-    grid-row: 1;
-    z-index: 5;
+  grid-column: 5 / -1;
+  grid-row: 1;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+/* Spacing for Skill & Work Cards */
+.skill-card,
+.work-card {
+  margin-top: 3rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about .left {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .right .top {
+    grid-column: 1 / span 9;
+    padding-top: 10%;
+  }
+
+  .right .bottom {
+    grid-column: 3 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .about .left h1 {
+    font-size: 1.6rem;
+  }
+
+  .about .left p {
+    font-size: 0.9rem;
+  }
+}
+.certificates-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.certificates-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.7rem;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: transform 0.3s ease;
+}
+
+.certificates-list li:hover {
+  transform: translateX(5px);
+  color: #4f46e5;
 }

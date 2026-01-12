@@ -1,81 +1,69 @@
-import { Link } from "react-router-dom";
 import "./SkillCardStyles.css";
+import React from "react";
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaJava, FaGitAlt, FaWordpress, FaDatabase } from "react-icons/fa";
+import { SiTypescript, SiTailwindcss, SiFirebase, SiDotnet, SiStripe } from "react-icons/si";
+import { MdAccessTime, MdPeople, MdLightbulb, MdChat } from "react-icons/md";
+import { AiOutlineApi } from "react-icons/ai";
 
-import React from 'react';
 
-import html_icon from "../assets/images/html_icon.png";
-import css_icon from "../assets/images/css_icon.png";
-import js_icon from "../assets/images/JS_icon.png";
-import cplus_icon from "../assets/images/c++_icon.png";
-import sql_icon from "../assets/images/sql_icon.png";
-import nodejs_icon from "../assets/images/nodejs_icon.jpeg";
-import react_icon from "../assets/images/react_icon.jpeg";
-import firebase_icon from "../assets/images/firebase_icon.jpeg";
-import github_icon from "../assets/images/github_icon.jpeg";
+// Technical Skills
+const technicalSkills = [
+  { name: "HTML5", icon: <FaHtml5 /> },
+  { name: "CSS3", icon: <FaCss3Alt /> },
+  { name: "JavaScript", icon: <FaJs /> },
+  { name: "TypeScript", icon: <SiTypescript /> },
+  { name: "React.js / React Native", icon: <FaReact /> },
+  { name: "C++", icon: <FaDatabase /> }, // Generic icon for C++
+  { name: "Java", icon: <FaJava /> },
+  { name: "Node.js / Express.js", icon: <FaNodeJs /> },
+  { name: "ASP.NET", icon: <SiDotnet /> },
+  { name: "SQL / MySQL", icon: <FaDatabase /> },
+  { name: "Firebase / Hosting", icon: <SiFirebase /> },
+  { name: "Git / GitHub", icon: <FaGitAlt /> },
+  { name: "Tailwind CSS / Bootstrap", icon: <SiTailwindcss /> },
+  { name: "WordPress", icon: <FaWordpress /> },
+  { name: "REST APIs & Integration", icon: <AiOutlineApi /> },
+  { name: "Payment Gateways", icon: <SiStripe /> },
 
+  { name: "MVC Architecture", icon: <SiDotnet /> },
+];
+
+// Professional Skills
+const professionalSkills = [
+  { name: "Problem Solving", icon: <MdLightbulb /> },
+  { name: "Communication", icon: <MdChat /> },
+  { name: "Time Management", icon: <MdAccessTime /> },
+  { name: "Team Collaboration", icon: <MdPeople /> },
+];
 
 const SkillCard = () => {
   return (
-    <div className="skill">
-        <h2 className="skill-heading">Skills</h2>
-        <div className="card-container">
-            <div className="card">
-                <img src={html_icon} className="image" alt="skill image" />
-                <span className="bar"></span>
-                <h3>- HTML5 -</h3>
-            </div>
+    <section className="skill">
+      <h2 className="skill-heading">Core Skills & Competencies</h2>
 
-            <div className="card">
-            <img src={css_icon} className="image" alt="skill image" />
-                <span className="bar"></span>
-                <h3>- CSS -</h3>
-            </div>
+      {/* Technical Skills */}
+      <h3 className="skill-subheading">Technical Skills</h3>
+      <div className="skill-grid">
+        {technicalSkills.map((skill, index) => (
+          <div className="skill-card" key={index}>
+            <div className="skill-icon">{skill.icon}</div>
+            <h3>{skill.name}</h3>
+          </div>
+        ))}
+      </div>
 
-            <div className="card">
-            <img src={js_icon} className="image" alt="skill image" />
-                <span className="bar"></span>
-                <h3>- Javascript -</h3>
-            </div>
-
-            <div className="card">
-            <img src={react_icon} className="image" alt="skill image" />
-                <span className="bar"></span>
-                <h3>- React -</h3>
-            </div>
-
-            <div className="card">
-            <img src={cplus_icon} className="image" alt="skill image" />
-                <span className="bar"></span>
-                <h3>- C++ -</h3>
-            </div>
-
-            <div className="card">
-            <img src={sql_icon} className="image" alt="skill image" />
-                <span className="bar"></span>
-                <h3>- SQL -</h3>
-            </div>
-        
-
-            <div className="card">
-            <img src={firebase_icon} className="image" alt="skill image" />
-                <span className="bar"></span>
-                <h3>- Next Js -</h3>
-            </div>
-
-            <div className="card">
-            <img src={nodejs_icon} className="image" alt="skill image" />
-                <span className="bar"></span>
-                <h3>- NodeJS -</h3>
-            </div>
-
-            <div className="card">
-            <img src={github_icon} className="image" alt="skill image" />
-                <span className="bar"></span>
-                <h3>- GitHub -</h3>
-            </div>
-        </div>
-    </div>
+      {/* Professional Skills */}
+      <h3 className="skill-subheading">Professional Skills</h3>
+      <div className="skill-grid">
+        {professionalSkills.map((skill, index) => (
+          <div className="skill-card" key={index}>
+            <div className="skill-icon">{skill.icon}</div>
+            <h3>{skill.name}</h3>
+          </div>
+        ))}
+      </div>
+    </section>
   );
-}
+};
 
 export default SkillCard;

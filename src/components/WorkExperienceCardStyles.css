@@ -1,71 +1,243 @@
+/* WorkExperienceCardStyles.css - 2026 Portfolio Upgrade */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-.experience-heading {
-    text-align: center;
-    color: #fff;
-    padding: 4rem 0 2rem 0;
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --accent-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-glass: rgba(255, 255, 255, 0.25);
+  --shadow-sm: 0 10px 30px rgba(0,0,0,0.08);
+  --shadow-lg: 0 25px 80px rgba(0,0,0,0.15);
+  --border-radius: 24px;
+  --border-gradient: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .experience {
-    width: 100%;
-    padding: 6rem 1rem;
+  width: 100%;
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  position: relative;
+  backdrop-filter: blur(10px);
 }
 
-.card-container {
-    max-width: 1140px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 40px;
+.experience::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--primary-gradient);
+  box-shadow: 0 0 30px rgba(102, 126, 234, 0.4);
 }
 
-.card {
-    border: 1px solid #eee;
-    color: #eee;
-    text-align: center;
-    padding: 1rem;
+.experience-heading {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-weight: 800;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4rem;
+  letter-spacing: -0.025em;
+  position: relative;
 }
 
-.card:hover {
-    background-color: #141414;
+.experience-heading::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--accent-gradient);
+  margin: 1rem auto 0;
+  border-radius: 2px;
 }
 
-.card h3 {
-    font-size: 1.4rem;
-    padding: 1rem;
+.experience-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  position: relative;
 }
 
-.card p {
-    padding: 10px 0;
+.experience-grid::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--accent-gradient);
+  transform: translateX(-50%);
+  border-radius: 2px;
+  z-index: 0;
 }
 
-.bar {
-    border-bottom: 1px solid #eee;
-    width: 10%;
-    margin: 1.5rem auto;
-    display: block;
+.experience-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  padding: 2.5rem 2rem;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+  z-index: 1;
 }
 
-.btc {
-    font-size: 4rem;
-    font-weight: 600;
-    padding: 1rem 0;
-} 
-
-.card .btn {
-    display: block;
-    width: 80%;
-    margin: 2rem auto;
+.experience-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--border-gradient);
 }
 
-.card .image {
-    width: 100%;
-    height: 50%;
+.experience-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.15), rgba(255,255,255,0) 70%);
+  transform: skewX(-20deg) translateX(-100%);
+  transition: transform 0.6s ease-in-out;
+  pointer-events: none;
 }
 
-@media screen and (max-width: 740px) {
-    .card-container {
-        max-width: 90%;
-        margin: auto;
-        grid-template-columns: 1fr;
-    }
+.experience-card:hover::after {
+  transform: skewX(-20deg) translateX(100%);
+}
+
+.experience-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(102,126,234,0.25), 0 10px 30px rgba(118,75,162,0.2);
+  border-image: var(--primary-gradient) 1;
+}
+
+.experience-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.experience-header h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.3;
+}
+
+.experience-header span {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.experience-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.experience-meta::before {
+  content: '●';
+  color: #10b981;
+  font-size: 1.2rem;
+}
+
+.experience-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.experience-card li {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  padding-left: 1.75rem;
+  position: relative;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.experience-card li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.experience-card li:last-child {
+  margin-bottom: 0;
+}
+
+.experience-card li:hover {
+  transform: translateX(5px);
+  color: #059669;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .experience-grid {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience {
+    padding: 4rem 1.5rem;
+  }
+  
+  .experience-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .experience-card {
+    padding: 2rem 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-heading {
+    font-size: 2rem;
+  }
+  
+  .experience-card {
+    padding: 1.75rem 1.5rem;
+  }
 }

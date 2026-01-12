@@ -1,71 +1,62 @@
+.skill {
+  padding: 4rem 1rem;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+}
 
 .skill-heading {
-    text-align: center;
-    color: #fff;
-    padding: 4rem 0 2rem 0;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
 }
 
-.skill {
-    width: 100%;
-    padding: 6rem 1rem;
+.skill-subheading {
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem;
+  color: #f0a500; /* accent color for section separation */
 }
 
-.card-container {
-    max-width: 1140px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 40px;
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
 }
 
-.card {
-    border: 1px solid #eee;
-    color: #eee;
-    text-align: center;
-    padding: 1rem;
+.skill-card {
+  background: #1a1a1a;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 120px;
+  transition: transform 0.3s, background 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.card:hover {
-    background-color: #141414;
+.skill-card:hover {
+  transform: translateY(-5px);
+  background: #222;
 }
 
-.card h3 {
-    font-size: 1.4rem;
-    padding: 1rem;
+/* For image icons */
+.skill-card img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
 }
 
-.card p {
-    padding: 10px 0;
+/* For React Icons */
+.skill-card svg {
+  width: 50px;
+  height: 50px;
+  color: #f0a500; /* accent color for icons */
+  margin-bottom: 0.5rem;
 }
 
-.bar {
-    border-bottom: 1px solid #eee;
-    width: 10%;
-    margin: 1.5rem auto;
-    display: block;
-}
-
-.btc {
-    font-size: 4rem;
-    font-weight: 600;
-    padding: 1rem 0;
-} 
-
-.card .btn {
-    display: block;
-    width: 80%;
-    margin: 2rem auto;
-}
-
-.card .image {
-    width: 100%;
-    height: 50%;
-}
-
-@media screen and (max-width: 740px) {
-    .card-container {
-        max-width: 90%;
-        margin: auto;
-        grid-template-columns: 1fr;
-    }
+.skill-card h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
 }

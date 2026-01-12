@@ -1,97 +1,111 @@
-import project1 from '../assets/images/img6.jpg';
-import project2 from '../assets/images/img7.jpg';
-import project3 from '../assets/images/img3.jpg';
-import img13 from '../assets/images/img13.png';
-import img14 from '../assets/images/img14.jpeg';
 import pic6 from '../assets/images/pic6.jpg';
 import pic7 from '../assets/images/pic7.jpg';
-import pic10 from '../assets/images/pic10.jpg';
-import pic9 from '../assets/images/pic9.jpg';
 import pic8 from '../assets/images/pic8.jpg';
+import pic9 from '../assets/images/pic9.jpg';
+import pic10 from '../assets/images/pic10.jpg';
+import img13 from '../assets/images/img13.png';
+import img14 from '../assets/images/img14.jpeg';
+import header from '../assets/images/header_img.jpeg';
+import logo1 from '../assets/images/logo1.png';
+import logo2 from '../assets/images/logo2.png';
+import logo3 from '../assets/images/logo3.png';
+import tiger from '../assets/images/tiger.jpg';
+import chatbot from '../assets/images/chatbot.jpg';
 
-const campusGPS = "The objective of the task was to build an interactive React application with CRUD operations that integrate with Firebase. The web application takes the form of three separate applications, one for admin, teachers and one for the students. This will be the first task that involves real-time communication between connected apps. Admin App Objective: Oversee the installation, configuration, and maintenance of the GPS system. Ensure the software and hardware components are up to date and functioning correctly. Students and Teachers App Objective: Use the GPS system to find directions to classrooms, administrative offices, libraries, and other campus facilities. Locate specific services, such as dining halls, health centers, or recreational areas. Tools used: Javascript, React, CSS, Bootstrap, and Firebase for data storage and hosting.";
-
-const weatherAppInfo = "The objective of this task was to help gauge my understanding of APIs and how to manipulate app data using APIs as my source of information. I created a weather app that shows the weather forecast of the location the user is in or searching. It also shows real-time news in and around that area/location. Tools used: Javascript, React, CSS, and Firebase for hosting.";
-
-const ehailingAppInfo = "The objective of this task was to enable users to easily book rides from their smartphones or computers without the need for traditional hailing methods. Provide a seamless booking experience with minimal steps. The app has different main pages, namely: Registration, Login, and Home page. The requirements of the app are as follows: 1. New users should be able to register on the app 2. Registered users should be able to login 3. Should be able to add new tasks with task description and priority 4. Should be able to update, delete, and search existing tasks 5. Home page should be accessible when logged in, this is called a guarded route 6. Data should be persistent. Tools used: Javascript, React, CSS, Local Storage, and Firebase for hosting.";
-
-const foodDeliveryAppInfo = "The objective of this task was to build a full-stack (frontend and backend) project for managing employees. It integrates Node.js, Express, EJS, and Firebase Admin. The requirements of the app are as follows: 1. Build a server running on Node.js that will contain both the backend as well as frontend. The backend should manage routing and the logic of the app in terms of data management. 2. The endpoints should have Firebase Firestore code within their logic to handle user requests and to force any necessary redirects to other pages when bad URLs are requested. 3. For the views, set up pages that will allow you to: a. Add new employees b. View all existing employees (brief view) c. View a single employee (detailed view) d. Update existing employees e. Delete existing employees";
-
-const shoppingListAppInfo = "The objective of this task was to help me understand Redux, which is the default tool used in complex projects to manage and share state between components as compared to prop drilling and context. The requirements of the app are as follows: 1. Design a user-friendly interface that allows users to manage their shopping list efficiently. Include pages that allow users to: a. Add new items to the list b. Display the already added items c. Edit existing items on the shopping list d. Delete existing items from the list 2. Firebase should be used as the database, so all edits that happen should be persistent and available on every app reload. 3. Redux should be used for state management within the project: a. Set up a Redux store, reducers, and actions to manage your data. b. All data from Firebase will be stored in the Redux store and then accessed from the app’s components using Redux actions/reducers. Tools used: Javascript, React, Redux, Firebase for storing data and hosting.";
-
-const toDoListAppInfo = "The objective of this task was to create a todo list (task list or task planner) that allows users to add a list of tasks that have three different priority levels (High, Medium, and Low). The app has three main pages, namely: Registration, Login, and Home page. The requirements of the app are as follows: 1. New users should be able to register on the app 2. Registered users should be able to login 3. Should be able to add new tasks with task description and priority 4. Should be able to update, delete, and search existing tasks 5. Home page should be accessible when logged in, this is called a guarded route 6. Data should be persistent. Tools used: Javascript, React, CSS, Local Storage, and Firebase for hosting.";
-
-const hotelAppInfo = "The objective of the task was to build an interactive React application with CRUD operations that integrate with Firebase. The web application takes the form of two separate applications, one for admin and one for the client/customer. This will be the first task that involves real-time communication between connected apps. Admin App Objective: The admin app allows an admin to add and maintain rooms in a hotel. The admin should be able to add new rooms with all information required, update the room later or delete it fully. The admin should be able to view all the rooms and room types already added. Client App Objective: The client app allows users to register, login, browse the rooms the hotel has, and then book when interested. Users should be able to filter these rooms according to a price range provided by the user. The web app should allow users to select a date range for their visit and only allow booking if there is a room available for those days. Tools used: Javascript, React, CSS, Bootstrap, and Firebase for data storage and hosting.";
-
-const ehailingMobileApp = "The objective of this task was to enable users to easily book rides from their smartphones or computers without the need for traditional hailing methods. Provide a seamless booking experience with minimal steps. The app has different main pages, namely: Registration, Login, and Home page. The requirements of the app are as follows: 1. New users should be able to register on the app 2. Registered users should be able to login 3. Should be able to add new tasks with task description and priority 4. Should be able to update, delete, and search existing tasks 5. Home page should be accessible when logged in, this is called a guarded route 6. Data should be persistent. Tools used: Javascript, React, CSS, Local Storage, and Firebase for hosting.";
-
-const restaurantAppInfo = "This task aimed to help me showcase my working knowledge of React Native in the form of a mobile application that allows the user to view food menus and make orders through the application. The requirements of the app are as follows: Create an application that: a. Allows users to register, login, and update their profiles on the application. b. Views food menus c. View a food item d. Add items to cart e. View cart f. Remove items from the cart g. Clear the cart h. Go to checkout i. Place an order. Tools used: React Native, Javascript, NodeJS, Stripe for payment integration, Expo for hosting, and Firebase for data storage. To explore the app on Android Expo Go app, use the link: exp://u.expo.dev/update/7705a239-c4f3-497c-99b3-55bcb5628daf";
-
-const nthomeRidezCustomerApp ="A mobile app for customers to request rides, track drivers in real time, pay securely, and rate their experience. Developed using React Native with integrated mapping, notifications, and role-based user flows.";
-
-const nthomeRidezDriverApp = "A mobile app for drivers to manage ride requests, view earnings, update status (online/offline), and receive real-time notifications. Built in React Native with integration to backend APIs for driver-specific workflows.";
-
-const ProjectCardData = [
-    {
-        imgsrc: pic8,
-        title: "TUT South Campus GPS",
-        text: campusGPS,
-        view: "https://campus-gps-379423.web.app/",
-    },
-    {
-        imgsrc: img14,
-        title: "Weather App",
-        text: weatherAppInfo,
-        view: "https://weather-app-f5c30.web.app",
-        gitlink: "https://github.com/rebotilwe/weatherApp-"
-    },
-    {
-        imgsrc: pic7,
-        title: "Nthome Ridez Web App",
-        text: ehailingAppInfo,
-        gitlink: "https://github.com/ICEP-DEV/Tech.Wise.Web/tree/Bobo"
-    },
-    {
-        imgsrc: img13,
-        title: "To do list",
-        text: toDoListAppInfo,
-        view: "https://to-do-list-592d8.web.app/",
-    },
-    {
-        imgsrc: pic10,
-        title: "Food Delivery Web App",
-        text: foodDeliveryAppInfo,
-        view: './contact',
-        gitlink: "https://github.com/TSlash122/Bistro"
-    },
-    {
-        imgsrc: pic9,
-        title: "Hotel App",
-        text: hotelAppInfo,
-        view: "https://hotel-bookings-app.web.app/",
-        gitlink: "https://github.com/mabilisasandile/hotel-booking-app"
-    },
-    {
-        imgsrc: pic6, // Screenshot of the customer side
-        title: "Nthome Ridez Mobile App (Customer)",
-        text: nthomeRidezCustomerApp,
-        gitlink: "https://github.com/ICEP-DEV/Tech.Wise.Customer.Mobile" // replace with actual customer repo link
-    },
-    {
-        imgsrc: pic7,
-        title: "Nthome Ridez Mobile App (Driver)",
-        text: nthomeRidezDriverApp,
-        gitlink: "https://github.com/ICEP-DEV/Tech.Wise.Mobile" // driver repo
-    }
-    
-    // {
-    //     imgsrc: project3, // Update image if needed
-    //     title: "Restaurant Mobile App",
-    //     text: restaurantAppInfo,
-    //     gitlink: "https://github.com/yourusername/restaurant-app", // Replace with real link
-    //     view: "exp://u.expo.dev/update/7705a239-c4f3-497c-99b3-55bcb5628daf"
-    // }
+// Project descriptions (optimized)
+const WorkCardData = [
+  {
+    imgsrc: pic8,
+    title: "TUT South Campus GPS",
+    text: "Interactive campus GPS system for students, teachers, and admin. Provides real-time navigation, location tracking, and building information. Admin dashboard manages devices and routes. Built with React, Firebase, CSS, and Bootstrap.",
+    view: "https://campus-gps-379423.web.app/",
+  },
+  {
+    imgsrc: img14,
+    title: "Weather & News App",
+    text: "Displays real-time weather and local news for any location. Users can search locations and get instant updates. Built with React, JavaScript, CSS, and Firebase hosting.",
+    view: "https://weather-app-f5c30.web.app",
+    gitlink: "https://github.com/rebotilwe/weatherApp-"
+  },
+  {
+    imgsrc: pic7,
+    title: "Nthome Ridez Web App",
+    text: "E-hailing web app for booking rides, managing users, and tracking trips in real-time. Features include registration, login, subscriptions, payments, dashboards, notifications, and live maps. Built with React, JavaScript, CSS, and Local Storage.",
+    gitlink: "https://github.com/ICEP-DEV/Tech.Wise.Web/tree/Bobo"
+  },
+  {
+    imgsrc: img13,
+    title: "To-Do List App",
+    text: "Task management app with priority levels and persistent storage. Allows adding, editing, deleting, and tracking tasks efficiently. Built with React, JavaScript, CSS, and Firebase.",
+    view: "https://to-do-list-592d8.web.app/",
+  },
+  {
+    imgsrc: pic10,
+    title: "Food Delivery Web App",
+    text: "Full-stack app for food ordering with real-time order tracking, menu management, and secure payments. Built with Node.js, Express, EJS, and Firebase Admin.",
+    view: './contact',
+    gitlink: "https://github.com/TSlash122/Bistro"
+  },
+  {
+    imgsrc: pic9,
+    title: "Hotel Booking App",
+    text: "Allows clients to browse and book rooms, while admins manage rooms and bookings. Features include date filtering, availability checks, and CRUD operations. Built with React, Firebase, and Bootstrap.",
+    view: "https://hotel-bookings-app.web.app/",
+    gitlink: "https://github.com/mabilisasandile/hotel-booking-app"
+  },
+  {
+    imgsrc: pic6,
+    title: "Nthome Ridez Mobile App (Customer)",
+    text: "Mobile app for customers to request rides, track drivers in real-time, pay securely, and rate their experience. Built with React Native and integrated with backend APIs.",
+    gitlink: "https://github.com/ICEP-DEV/Tech.Wise.Customer.Mobile"
+  },
+  {
+    imgsrc: pic7,
+    title: "Nthome Ridez Mobile App (Driver)",
+    text: "Driver app for managing ride requests, earnings, and status updates. Includes real-time notifications and live tracking. Built with React Native and backend API integration.",
+    gitlink: "https://github.com/ICEP-DEV/Tech.Wise.Mobile"
+  },
+  // New Projects
+  {
+    imgsrc: logo1,
+    title: "Kasi Digital Connect",
+    text: "A multi-service digital platform empowering local communities by bridging the gap between traditional business and the digital economy. Integrates retail, service bookings, and rentals for local economic development. Built with modern web technologies.",
+    view: "https://kasi-digital-connect.netlify.app/",
+    gitlink: "https://github.com/rebotilwe/kasi-digital-connect.git"
+  },
+  {
+    imgsrc: logo3,
+    title: "LeadLink Africa Website",
+    text: "Connects businesses with verified leads across finance, insurance, legal, real estate, and tech. Delivers industry-specific leads with POPIA-compliant processes to boost revenue and performance.",
+    view: "https://leadlink-website.netlify.app/",
+    gitlink: "https://github.com/rebotilwe/leadlink-website.git"
+  },
+  {
+    imgsrc: chatbot,
+    title: "Chatbot Project",
+    text: "Custom chatbot solution for automating customer service and support. Built to integrate with web and mobile platforms for instant communication and queries handling.",
+    gitlink: "https://github.com/rebotilwe/chatbot.git"
+  },
+  {
+    imgsrc: logo2,
+    title: "Kuvasha Groener Website",
+    text: "Corporate website for a 100% black female-owned law firm. Showcases legal services including property, wills, contractual law, and notarial services. Focuses on transparency, efficiency, and client communication.",
+    view: "https://kgroenerattorneys.co.za/",
+    gitlink: "https://github.com/rebotilwe/kgroener-website.git"
+  },
+  {
+    imgsrc: tiger,
+    title: "ZooLand Website",
+    text: "Virtual zoo platform to explore and learn about animals worldwide. Categories include mammals, birds, reptiles, amphibians, fish, and insects, with pictures, fun facts, and educational content.",
+    view: "https://zoofari-website.netlify.app/",
+    gitlink: "https://github.com/rebotilwe/Zooland-website.git"
+  },
+  {
+    imgsrc: header,
+    title: "Thirsti Water E-Commerce",
+    text: "Premium bottled water e-commerce platform delivering fresh water directly to customers. Focuses on convenience, sustainability, and eco-friendly packaging. Built with modern web technologies for smooth online shopping.",
+    gitlink: "https://github.com/rebotilwe/ecommerce.git"
+  }
 ];
 
-
-export default ProjectCardData;
+export default WorkCardData;

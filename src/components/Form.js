@@ -73,8 +73,10 @@ const Form = () => {
         setLoading(false);
       });
   };
+return (
+  <div className="contact-container">
 
-  return (
+    {/* Contact Form */}
     <div className="form">
       <form onSubmit={handleSubmit}>
         <label>Your Name:</label>
@@ -90,15 +92,39 @@ const Form = () => {
         <span style={{ color: 'red' }}>{formErrors.subject}</span>
 
         <label>Message:</label>
-        <textarea name="message" rows="6" value={formData.message} onChange={handleChange} placeholder="Type your message here" />
+        <textarea
+          name="message"
+          rows="6"
+          value={formData.message}
+          onChange={handleChange}
+          placeholder="Type your message here"
+        />
         <span style={{ color: 'red' }}>{formErrors.message}</span>
 
         <button type="submit" className="btn" disabled={loading}>
-          {loading ? 'Sending...' : 'SUBMIT'}
+          {loading ? 'Sending message...' : 'Send Message'}
         </button>
       </form>
     </div>
-  );
+
+    {/* Google Map */}
+    <div className="map-container">
+      <h3>My Location</h3>
+      <iframe
+        title="Google Map"
+        src="https://www.google.com/maps?q=5787%20uMzinto%20Rd,%20Langaville%20Brakpan,%201550,%20South%20Africa&output=embed"
+        allowFullScreen=""
+        loading="lazy"
+      ></iframe>
+
+      <p className="address">
+        5787 uMzinto Rd, Langaville Brakpan, 1550, Gauteng, South Africa
+      </p>
+    </div>
+
+  </div>
+);
+
 };
 
 export default Form;

@@ -12,14 +12,14 @@ const Footer = () => {
           <div className="phone">
             <h4>
               <FaHome size={20} style={{ color: "#fff", marginRight: "2rem" }} />
-              Pretoria, Gauteng, South Africa.
+              5787 uMzinto Rd, Langaville Brakpan, 1550, Gauteng, South Africa.
             </h4>
           </div>
 
           <div className="phone">
             <h4>
               <FaPhone size={20} style={{ color: "#fff", marginRight: "2rem" }} />
-              +2764 851 3696
+              +2763 577 3160
             </h4>
           </div>
 
@@ -34,10 +34,10 @@ const Footer = () => {
         <div className="right">
           <h4>About me</h4>
           <p>Rebotilwe Mokiba | IT Professional & Software Developer.
-            Recent Graduate  with a strong foundation in software development and a passion for creating innovative solutions. Boasting a year of hands-on experience in full-stack development. Let's connect and build something amazing together!
+            Recent Graduate  with a strong foundation in software development and a passion for creating innovative solutions. Boasting over 3 years of hands-on experience in full-stack development. Let’s connect and build something amazing together!
           </p>
           <div className="social">
-            <Link to="https://www.facebook.com/Rebotilwe Bobo">
+            <Link to="https://www.facebook.com/rebotilwe.bobo.1/">
               <FaFacebook size={30} className="social-icon" />
             </Link>
 
@@ -45,7 +45,7 @@ const Footer = () => {
               <FaTwitter size={30} className="social-icon" />
             </Link>
 
-            <Link to="https://www.linkedin.com/in/Rebotilwe Mokiba">
+            <Link to="https://www.linkedin.com/in/rebotilwe-mokiba-92b791287 ">
               <FaLinkedin size={30} className="social-icon" />
             </Link>
 

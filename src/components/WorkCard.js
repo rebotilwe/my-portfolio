@@ -1,76 +1,57 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from "react-router-dom";
-import img7 from '../assets/images/img7.jpg';
+import { NavLink } from "react-router-dom";
 import "./WorkCardStyles.css";
-import { Modal, Button } from '@mui/material';
+import { Modal } from '@mui/material';
 
 const WorkCard = (props) => {
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const [open, setOpen] = useState(false);
 
   return (
-    <div className="project-card">
-      <img src={props.imgsrc} alt="image" />
-      <h2 className="project-title">{props.title}</h2>
-      <div className="pro-details">
-        <p className="content">{props.text}</p>
-        <p>
-          <button onClick={handleOpen} style={{ color: 'blue', border: 'none', background: 'none', cursor: 'pointer' }}>see more...</button>
-        </p>
-        <div className="pro-btns">
-          <NavLink to={props.view} className="btn">View</NavLink>
-          <NavLink to={props.gitlink} className="btn">Source</NavLink>
+    <>
+      <div className="project-card">
+        <div className="project-image">
+          <img src={props.imgsrc} alt={props.title} />
+        </div>
+
+        <div className="project-body">
+          <h2 className="project-title">{props.title}</h2>
+
+          <p className="project-text">
+            {props.text.slice(0, 140)}...
+          </p>
+
+          <button className="see-more" onClick={() => setOpen(true)}>
+            Read more →
+          </button>
+
+          <div className="pro-btns">
+            {props.view && (
+              <NavLink to={props.view} target="_blank" className="btn">
+                Live
+              </NavLink>
+            )}
+            {props.gitlink && (
+              <NavLink to={props.gitlink} target="_blank" className="btn btn-light">
+                Code
+              </NavLink>
+            )}
+          </div>
         </div>
       </div>
 
-      <div className='modal'>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-title"
-          aria-describedby="modal-description"
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '75%',
-            color: '#000',
-            backgroundColor: '#191970',
-            '@media (max-width: 600px)': {
-              alignItems: 'flex-start', // Adjust alignment for small screens
-            },
-          }}
-        >
-          <div
-            sx={{
-              backgroundColor: '#191970',
-              padding: 2,
-              borderRadius: 4,
-              boxShadow: 24,
-              width: '50%',
-              '@media (max-width: 600px)': {
-                width: '80%', // Adjust width for small screens
-              },
-            }}
-          >
-            <h2 className='project-title'>{props.title}</h2>
-            <p>{props.text}</p>
-            <br></br>
-            <br></br>
-            <Button sx={{color: '#fff'}} onClick={handleClose}>Close</Button>
-          </div>
-        </Modal>
-      </div>
+      {/* Modal */}
+      <Modal open={open} onClose={() => setOpen(false)}>
+        <div className="project-modal">
+          <h2>{props.title}</h2>
+          <p>{props.text}</p>
 
-    </div>
+          <button className="btn" onClick={() => setOpen(false)}>
+            Close
+          </button>
+        </div>
+      </Modal>
+    </>
   );
-}
+};
 
 export default WorkCard;

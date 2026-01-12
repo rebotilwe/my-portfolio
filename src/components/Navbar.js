@@ -27,10 +27,6 @@ const Navbar = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     }, [location]);
 
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        setClick(false); // close mobile menu if open
-    }
 
     return (
       <header className={`header ${scrolled ? "header-bg" : ""}`}>
